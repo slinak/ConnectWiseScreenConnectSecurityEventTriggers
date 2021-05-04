@@ -1,0 +1,5 @@
+Security Event Types:
+-LoginAttempt
+-LogoutAttempt
+-ChangePasswordAttempt
+-ResetPasswordAttempt
