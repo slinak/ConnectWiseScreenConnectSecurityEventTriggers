@@ -3,3 +3,6 @@ Security Event Types:
 -LogoutAttempt
 -ChangePasswordAttempt
 -ResetPasswordAttempt
+
+Extension Manifest Example Component:
+<DynamicSecurityEventTriggerDefinition SourceFile="SecurityEventTrigger.cs" />
