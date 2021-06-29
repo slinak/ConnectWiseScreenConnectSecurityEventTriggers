@@ -1,0 +1,68 @@
+Extension Manifest Example Component:
+<DynamicSecurityEventTriggerDefinition SourceFile="SecurityEventTrigger.cs" />
+
+--------------------------------
+Security Event Types:
+--------------------------------
+-LoginAttempt
+-LogoutAttempt
+-ChangePasswordAttempt
+-ResetPasswordAttempt
+
+--------------------------------
+Login Reasons:
+--------------------------------
+-None
+-Expired
+-AuthenticationFactorCountTooFew
+-IdleTooLong
+-PermissionsInsufficient
+-NotAuthenticated
+-Logout
+
+--------------------------------
+Login Result:
+--------------------------------
+-Success
+-UserNameInvalid
+-PasswordInvalid
+-OneTimePasswordProviderInvalid
+-OneTimePasswordUserKeyInvalid
+-OneTimePasswordInvalid
+-OneTimePasswordRequired
+-LockedOut
+-ChangeablePasswordExpired
+-UnchangeablePasswordExpired
+-Unknown
+
+--------------------------------
+Change Password Result:
+--------------------------------
+-Success
+-UserNameInvalid
+-CurrentPasswordInvalid
+-NewPasswordInvalid
+-NewPasswordMatchInvalid
+-LockedOut
+-NotSupported
+-Unknown
+
+--------------------------------
+Reset Password Result:
+--------------------------------
+-Success
+-UserNameInvalid
+-ResetCodeInvalid
+-NewPasswordInvalid
+-NewPasswordMatchInvalid
+-LockedOut
+-NotSupported
+-Unknown
+-ResetPasswordFailure
+ 
+--------------------------------
+Logout Result:
+--------------------------------
+-Success
+-NotAuthenticated
+-Unknown
