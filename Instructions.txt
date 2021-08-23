@@ -15,7 +15,7 @@ Steps to create and implement a basic Security Event Trigger to monitor for auth
 
 <?xml version="1.0"?>
 <SecurityEventTriggers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<SecurityEventTrigger Name="Incorrect Password Authentication Attempt" IsDisabled="false" EventFilter="Event.EventType = 'LoginAttempt' AND Event.Result = '2'">
+	<SecurityEventTrigger Name="Incorrect Password Authentication Attempt" IsDisabled="false" EventFilter="Event.EventType = 'LoginAttempt' AND Event.OperationResult = 'PasswordInvalid'">
    		<Actions>
 			<TriggerAction xsi:type="SmtpTriggerAction" From="" To="EMAIL_ADDRESS" Subject="An invalid password authentication attempt has just occurred">
 				<Body>{*:j}</Body>
@@ -33,7 +33,7 @@ Explanation
 -------------------------------------
 Looking at the above XML sample we see that the file is just a collection of SecurityEventTriggers.  Each SecurityEventTrigger can contain multiple TriggerAction objects which can be emails or web requests (SmtpTriggerAction, HttpTriggerAction respectively).
 
-If we step into the defined SecurityEventTrigger, we see it has a name, it is NOT disabled, and it has an EventFilter which specifies the Security Events for which we want it to execute an action.  Looking at the EventFilter, we see it's looking for LoginAttempts where the result is "2".  The "2" comes from the "SecurityEvent Enums.txt" file and the LoginResult field.  2 corresponds to "PasswordInvalid", since it's read as an array of elements and thus the index starts at 0.
+If we step into the defined SecurityEventTrigger, we see it has a name, it is NOT disabled, and it has an EventFilter which specifies the Security Events for which we want it to execute an action.  Looking at the EventFilter, we see it's looking for LoginAttempts where the result is "PasswordInvalid".  
 
 Now we can look at the Actions section, which contains a single TriggerAction of type SmtpTriggerAction.  These properties are all self explanatory and correspond to a typical email message.  The Body field, however, contains a special Control-defined object.  This example tells the email body to contain all relevant objects and their properties formatted as json.  Using {*:x} will output a XML hierarchy and you can use "u" to create a URL-encoded string, such as {Event:u}.
 

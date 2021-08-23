@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <SecurityEventTriggers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<SecurityEventTrigger Name="Incorrect Password Authentication Attempt" IsDisabled="false" EventFilter="Event.EventType = 'LoginAttempt' AND Event.Result = '2'">
+	<SecurityEventTrigger Name="Incorrect Password Authentication Attempt" IsDisabled="false" EventFilter="Event.EventType = 'LoginAttempt' AND Event.OperationResult = 'PasswordInvalid'">
    		<Actions>
 			<TriggerAction xsi:type="SmtpTriggerAction" From="" To="EMAIL_ADDRESS" Subject="An invalid password authentication attempt has just occurred">
 				<Body>{*:j}</Body>
